@@ -1,0 +1,7 @@
+# Answer
+
+You have to create database
+
+```
+create database jpaex character set utf8;
+```
