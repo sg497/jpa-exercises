@@ -22,3 +22,4 @@ use jpaex;
 | phone_type   | varchar(255) | NO   | PRI | NULL    |       |
 +--------------+--------------+------+-----+---------+-------+
 ```
+5. How can you store multiple phone numbers with a phone_type i.e. `Map<String, List<String>>`?

@@ -4,7 +4,6 @@ package com.xebia.jpaexcercises._14_map;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -18,14 +17,10 @@ public class MapElementCollectionApp {
             entityManager = entityManagerFactory.createEntityManager();
             entityManager.getTransaction().begin();
 
-            Map<String, PhoneNumbers> phoneNumbers = new HashMap<>();
-            PhoneNumbers homePhoneNumbers = new PhoneNumbers(Collections.singletonList("12345"));
-            phoneNumbers.put("home", homePhoneNumbers);
-            PhoneNumbers officePhoneNumbers = new PhoneNumbers(Collections.singletonList("123458788"));
-            phoneNumbers.put("office", officePhoneNumbers);
+            Map<String, String> phoneNumbers = new HashMap<>();
+            phoneNumbers.put("home", "12345");
+            phoneNumbers.put("office", "12321211");
             Employee employee = new Employee("Test Employee", phoneNumbers);
-            entityManager.persist(homePhoneNumbers);
-            entityManager.persist(officePhoneNumbers);
             entityManager.persist(employee);
             entityManager.getTransaction().commit();
             entityManager.close();

@@ -21,12 +21,12 @@ public class Employee {
     )
     @MapKeyColumn(name = "phone_type")
     @Column(name = "phone_number")
-    private Map<String, PhoneNumbers> phoneNumbers;
+    private Map<String, String> phoneNumbers;
 
     public Employee() {
     }
 
-    public Employee(String name, Map<String, PhoneNumbers> phoneNumbers) {
+    public Employee(String name, Map<String, String> phoneNumbers) {
         this.name = name;
         this.phoneNumbers = phoneNumbers;
     }
@@ -39,7 +39,7 @@ public class Employee {
         return name;
     }
 
-    public Map<String, PhoneNumbers> getPhoneNumbers() {
+    public Map<String, String> getPhoneNumbers() {
         return phoneNumbers;
     }
 }
