@@ -1,0 +1,9 @@
+1) In EmployeeWithFieldAccess when we give @Id annotation at field the default is FieldAccess so there is no need to specify the
+   AccessType.FieldType.As it uses the java reflection to achieve the same.
+
+2) In EmployeeWithMixedAccess we can give the @Id annotation at field as the AccessType.FieldType is at Entity level and the
+    AccessType.PropertyType is at method getEmailAddress so it will create a new column named email_address in DB.
+
+3) In EmployeeWithPropertyAccess we can only give the @Id annotation at method as the AccessType.PropertyType is at Entity level.
+
+The table structure would be same for all the 3 classes.

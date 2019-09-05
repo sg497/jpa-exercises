@@ -1,0 +1,3 @@
+We can convert the image in byte[]  before storing it in database.
+After running the DbApp the object gets persisted in database with a column
+named pic and the image gets stored as BLOB.
