@@ -15,11 +15,9 @@ public class Employee {
     private String name;
 
     @ElementCollection(fetch = FetchType.LAZY)
-    @CollectionTable(name = "items", joinColumns = @JoinColumn(name = "emp_id"))
     private List<Item> items;
 
     @ElementCollection
-    @CollectionTable(name = "nick_names", joinColumns = @JoinColumn(name = "emp_id"))
     private Set<String> nickNames;
 
     public Employee() {

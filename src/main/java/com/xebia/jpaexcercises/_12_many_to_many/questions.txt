@@ -14,3 +14,4 @@ use jpaex;
 3. Why we don't need @JoinColumn in @ManyToMany mapping?
 4. How can you ensure that join table is created with name `emp_proj` and has columns `emp_id` and `proj_id`?
 5. Create two employees and add them to a single project? Make sure data is saved to database.
+6. Are items and nickNames fetched lazily?

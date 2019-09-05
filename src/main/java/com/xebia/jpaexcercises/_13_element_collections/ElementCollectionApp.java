@@ -27,7 +27,9 @@ public class ElementCollectionApp {
             employee.setNickNames(nickNames);
             entityManager.persist(employee);
             entityManager.getTransaction().commit();
+            entityManager.close();
 
+            entityManager = entityManagerFactory.createEntityManager();
             Employee foundEmployee = entityManager.find(Employee.class, employee.getId());
             System.out.println(foundEmployee);
         } catch (Exception e) {
