@@ -1,6 +1,6 @@
 # Questions
 
-> To make this exercise work, rename 13-persistence.xml to persistence.xml
+> To make this exercise work, rename 12-persistence.xml to persistence.xml
 > Drop the existing database and recreate the database
 
 ```
@@ -14,4 +14,3 @@ use jpaex;
 3. Why we don't need @JoinColumn in @ManyToMany mapping?
 4. How can you ensure that join table is created with name `emp_proj` and has columns `emp_id` and `proj_id`?
 5. Create two employees and add them to a single project? Make sure data is saved to database.
-6. Are items and nickNames fetched lazily?
