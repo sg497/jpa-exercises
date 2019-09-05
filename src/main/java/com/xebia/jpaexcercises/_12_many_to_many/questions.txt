@@ -1,6 +1,6 @@
 # Questions
 
-> To make this exercise work, rename 12-persistence.xml to persistence.xml
+> To make this exercise work, rename 13-persistence.xml to persistence.xml
 > Drop the existing database and recreate the database
 
 ```
