@@ -2,16 +2,8 @@
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.2"
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
     <persistence-unit name="jpa-examples-pu" transaction-type="RESOURCE_LOCAL">
-        <!--<class>com.xebia.jpaexcercises._01_access.EmployeeWithFieldAccess</class>
-        <class>com.xebia.jpaexcercises._01_access.EmployeeWithMixedAccess</class>
-        <class>com.xebia.jpaexcercises._01_access.EmployeeWithPropertyAccess</class>
-        <class>com.xebia.jpaexcercises._02_table.Employee</class>
-        <class>com.xebia.jpaexcercises._03_lazy.Employee</class>
-        -->
-        <!--<class>com.xebia.jpaexcercises._04_lob.Employee</class>-->
-        <!--<class>com.xebia.jpaexcercises._05_enum.EmployeeType</class>-->
-        <class>com.xebia.jpaexcercises._06_temporal.Employee</class>
-        <!--<class>com.xebia.jpaexcercises._07_id_gen.JpaExcercisesApplication</class>-->
+        <class>com.xebia.jpaexcercises._08_many_to_one.Employee</class>
+        <class>com.xebia.jpaexcercises._08_many_to_one.Department</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>

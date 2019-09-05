@@ -32,4 +32,8 @@ public class EmployeeWithMixedAccess {
     public String getEmailAddress() {
         return this.email.replace("@gmail.com", "@xebia.com");
     }
+
+    public void setEmailAddress(String email) {
+        this.email = email;
+    }
 }

@@ -1,10 +1,12 @@
 package com.xebia.jpaexcercises._00_driver;
 
-import com.xebia.jpaexcercises._01_access.EmployeeWithFieldAccess;
+
+import com.xebia.jpaexcercises._06_temporal.Employee;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.util.Date;
 
 public class DbApp {
 
@@ -13,17 +15,31 @@ public class DbApp {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         entityManager.getTransaction().begin();
 
-        EmployeeWithFieldAccess employee = new EmployeeWithFieldAccess();
+        Employee employee = new Employee();
         employee.setId(1L);
         employee.setName("Test Employee");
-        employee.setEmail("test@test.com");
+        employee.setDateOfBirth(new Date());
+        employee.setRegisteredAt(new Date());
+        /*File file = new File("C:\\Users\\Sakshi.Grover\\Downloads\\capture.png");
+        byte[] bFile = new byte[(int) file.length()];
+        try
+        {
+            FileInputStream fileInputStream = new FileInputStream(file);
+            //convert file into array of bytes
+            fileInputStream.read(bFile);
+            fileInputStream.close();
+            employee.setPicture(bFile);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }*/
+
+
         entityManager.persist(employee);
         entityManager.getTransaction().commit();
 
-        EmployeeWithFieldAccess foundEmployee = entityManager.find(EmployeeWithFieldAccess.class, 1L);
+        Employee foundEmployee = entityManager.find(Employee.class, 1L);
         System.out.println(foundEmployee);
         entityManager.close();
         entityManagerFactory.close();
-
     }
 }

@@ -1,6 +1,7 @@
-Using Ordinal as EnumType will set the attribute position starting from 0 defined in the EmployeeType enum
-and store it in database as int(11) type column.
-FULL_TIME,                  ->  0 (these are the positions for ordinal)
-PART_TIME,                  ->  1
-CONTRACTOR                  ->  2
-Whereas EnumType.STRING will set the employeeType value as string {VARCHAR(255)} in the database table.
+Using Ordinal as EnumType, employeeType will be set as the attribute position starting from 0 defined in the EmployeeType enum
+and will be stored in DB as int(11).
+FULL_TIME                 ->  0 (these are the positions )
+PART_TIME                 ->  1
+CONTRACTOR                ->  2
+Whereas
+Using EnumType as STRING, the employeeType will be string and stored as {VARCHAR(255)} in the DB.

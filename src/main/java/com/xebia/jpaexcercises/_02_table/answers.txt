@@ -1,2 +1,3 @@
-The @Table annotation is used to change the name of the column as by default the table name is the Class name but if we
-explicitly specify the name of the table under @Table annotation then it will create the table in db with the same name.
+By default the table name is the Class name
+@Table annotation is used to explicitly to change the table name.
+Here Class name is 'Employee' but 'employees' table is created in DB.
