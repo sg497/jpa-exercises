@@ -1,0 +1,11 @@
+1) We can make this example run without any exception by adding argument
+   cascade=CascadeType.PERSIST to @OneToOne mapping defined.
+2) Number of tables created- 3.
+   Table with the foreign key employees table.
+3) We can rename foreign key, by using @JoinColumn(name="plot_id") we can rename the foreign key
+4) we make a reference variable of Employee with @OneToOne mapping mappedBy="parkingSpace".
+5) As mapping is bidirectional, if we fetch parking employee is also fetched.
+   Logs:
+   Employee{id=1, name='Employee1', salary=1000000, parkingSpace=ParkingSpace{id=2, lotNo=1234}}
+
+

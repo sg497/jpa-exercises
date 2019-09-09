@@ -13,7 +13,7 @@ public class Employee {
     private Long id;
     private String name;
     private long salary;
-    @ManyToMany
+    @ManyToMany(mappedBy = "employees")
     private List<Project> projects;
 
     public Employee() {
@@ -22,6 +22,16 @@ public class Employee {
     public Employee(String name, long salary) {
         this.name = name;
         this.salary = salary;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", salary=" + salary +
+                //", projects=" + projects +
+                '}';
     }
 
     public Employee addProject(Project project) {

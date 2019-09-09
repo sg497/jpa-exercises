@@ -28,7 +28,7 @@ public class OneToManyApp {
             entityManager.close();
             entityManager = entityManagerFactory.createEntityManager();
             System.out.println("Finding Employee");
-            Employee foundEmployee = entityManager.find(Employee.class, employee.getId());
+            Department foundEmployee = entityManager.find(Department.class, department.getId());
             System.out.println(foundEmployee);
             System.out.println("Found Employee");
 

@@ -1,0 +1,28 @@
+1. We remove (optional = false) because it makes the association mandatory.
+2. Two `SELECT` queries are fired between `Finding Employee` and `Found Employee` because foundEmployee
+    is calling toString method which has department due to which the second query is fired.
+3. Table Structures
+    departments
+    +-------+--------------+------+-----+---------+-------+
+    | Field | Type         | Null | Key | Default | Extra |
+    +-------+--------------+------+-----+---------+-------+
+    | id    | bigint(20)   | NO   | PRI | NULL    |       |
+    | name  | varchar(255) | YES  |     | NULL    |       |
+    +-------+--------------+------+-----+---------+-------+
+
+    employees
+    +---------------+--------------+------+-----+---------+-------+
+    | Field         | Type         | Null | Key | Default | Extra |
+    +---------------+--------------+------+-----+---------+-------+
+    | id            | bigint(20)   | NO   | PRI | NULL    |       |
+    | name          | varchar(255) | YES  |     | NULL    |       |
+    | salary        | bigint(20)   | NO   |     | NULL    |       |
+    | department_id | bigint(20)   | YES  | MUL | NULL    |       |
+    +---------------+--------------+------+-----+---------+-------+
+4. inverse side: deparments
+    owning side: employees
+
+5. Number of SQL queries fired if we find department- 2
+6. If we remove mappedBy, a new departments_employees table is created. While inserting data to employee table, department_id
+    is not populated. Since, the bidrectional association is broken and the inverse side
+    doesn't maps to the owning side.

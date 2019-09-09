@@ -15,7 +15,11 @@ public class ManyToManyApp {
             entityManager.getTransaction().begin();
 
             Employee employee = new Employee("Test Employee", 1_000_000);
+            Project project =new Project("Java");
+            employee.addProject(project);
+            project.addEmployee(employee);
             entityManager.persist(employee);
+            entityManager.persist(project);
             entityManager.getTransaction().commit();
 
             Employee foundEmployee = entityManager.find(Employee.class, employee.getId());

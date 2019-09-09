@@ -1,4 +1,5 @@
-After executing the DbApp the @Temporal annnotation used to insert the date format data in the DB.
-1) TemporalType.DATE is saved the dat in default YYYY-MM-DD format while
-2) TemporalType.TIMESTAMP is used to saved the date as well as the timestamp of that time in default format
-    YYYY-MM-DD HH:MM:SS.But we can change the format of the date as per our convinence.
+The @Temporal annotation is used to insert data in date format in the DB.
+TemporalType.DATE saves the date in default YYYY-MM-DD format
+whereas
+TemporalType.TIMESTAMP saves the date as timestamp of that time in default format
+YYYY-MM-DD HH:MM:SS. But, we can change the format of the date as per our convinence.

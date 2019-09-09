@@ -11,6 +11,16 @@ public class ParkingSpace {
     private Long id;
     private int lotNo;
 
+    @OneToOne(mappedBy="parkingSpace")
+    private Employee employee;
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
+
     public ParkingSpace() {
     }
 

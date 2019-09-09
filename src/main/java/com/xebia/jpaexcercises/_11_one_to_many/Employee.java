@@ -12,7 +12,7 @@ public class Employee {
     private String name;
     private long salary;
 
-    @ManyToOne(optional = false)
+    @ManyToOne
     private Department department;
 
     public Employee() {
@@ -61,7 +61,7 @@ public class Employee {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", salary=" + salary +
-                ", department=" + department +
+        //        ", department=" + department +
                 '}';
     }
 }

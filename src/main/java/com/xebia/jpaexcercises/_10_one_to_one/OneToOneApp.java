@@ -16,8 +16,8 @@ public class OneToOneApp {
             entityManager = entityManagerFactory.createEntityManager();
             entityManager.getTransaction().begin();
 
-            ParkingSpace parkingSpace = new ParkingSpace(123);
-            Employee employee = new Employee("Test Employee", 1_000_000, parkingSpace);
+            ParkingSpace parkingSpace = new ParkingSpace(1234);
+            Employee employee = new Employee("Employee1", 1_000_000, parkingSpace);
             entityManager.persist(employee);
             entityManager.getTransaction().commit();
             entityManager.close();
@@ -30,7 +30,7 @@ public class OneToOneApp {
             entityManager = entityManagerFactory.createEntityManager();
 
             ParkingSpace foundParking = entityManager.find(ParkingSpace.class, parkingSpace.getId());
-            System.out.println(foundParking);
+            System.out.println(foundParking.getEmployee());
 
         } catch (Exception e) {
             e.printStackTrace();

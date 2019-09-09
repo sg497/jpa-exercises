@@ -1,0 +1,4 @@
+1. Number of tables created- 5
+employees, employees_projects, hibernate_sequence, projects, projects_employees
+
+2) using mappedBy

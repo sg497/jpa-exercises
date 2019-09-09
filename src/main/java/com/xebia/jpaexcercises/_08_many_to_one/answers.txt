@@ -1,0 +1,54 @@
+1. Number of tables created- 3
+   employees, departments, hibernate_sequence.
+
+2. +---------------+--------------+------+-----+---------+-------+
+   | Field         | Type         | Null | Key | Default | Extra |
+   +---------------+--------------+------+-----+---------+-------+
+   | id            | bigint(20)   | NO   | PRI | NULL    |       |
+   | name          | varchar(255) | YES  |     | NULL    |       |
+   | salary        | bigint(20)   | NO   |     | NULL    |       |
+   | department_id | bigint(20)   | YES  | MUL | NULL    |       |
+   +---------------+--------------+------+-----+---------+-------+
+3. +-------+--------------+------+-----+---------+-------+
+   | Field | Type         | Null | Key | Default | Extra |
+   +-------+--------------+------+-----+---------+-------+
+   | id    | bigint(20)   | NO   | PRI | NULL    |       |
+   | name  | varchar(255) | YES  |     | NULL    |       |
+   +-------+--------------+------+-----+---------+-------+
+
+4.  Hibernate first inserted to Department and then to Employee because when the child object is saved,
+ hibernate first checks whether its parent object is exist in database or not.
+ If parent object exists only then the hibernate inserts the child records.
+ If it doesn’t exist, then hibernate first inserts the parent records and then insert the child records.
+
+ 10:45:17.105 [main] DEBUG org.hibernate.SQL - insert into departments (name, id) values (?, ?)
+ 10:45:17.130 [main] DEBUG org.hibernate.SQL - insert into employees (department_id, name, salary, id) values (?, ?, ?, ?)
+
+ 5. No, hibernate didnt't create any mapping table.
+ 6. if we remove `CascadeType.PERSIST`
+    Logs:
+    at com.xebia.jpaexcercises._08_many_to_one.ManyToOneApp.main(ManyToOneApp.java:24)
+    Caused by: java.lang.IllegalStateException: org.hibernate.TransientPropertyValueException: object references
+    an unsaved transient instance - save the transient instance before flushing :
+    com.xebia.jpaexcercises._08_many_to_one.Employee.department -> com.xebia.jpaexcercises._08_many_to_one.Department.
+
+    This is because save() and persist() operations related to the entities are removed.
+ 7. Using  @NotNull annotation at private Department department;
+ 8.  Department department = new Department("IT");
+     Employee employee = new Employee();
+     employee.setName("John");
+     employee.setSalary(100_000);
+     employee.setDepartment(department);
+     entityManager.persist(employee);
+     Employee employee1 = new Employee();
+     employee1.setName("Tom");
+     employee1.setSalary(100_000);
+     employee1.setDepartment(department);
+     entityManager.persist(employee1);
+     entityManager.getTransaction().commit();
+
+ 9)  Owning Side - Employee
+     Inverse Side - Department
+ 10) To rename column, we can use
+    @JoinColumn(name = "dept_id")
+    private Department department;

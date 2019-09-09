@@ -12,6 +12,10 @@ public class Project {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
+    @JoinTable(
+            name = "emp_proj",
+            joinColumns = {@JoinColumn(name = "emp_id")},
+            inverseJoinColumns = {@JoinColumn(name = "proj_id")})
     @ManyToMany
     private List<Employee> employees;
 
@@ -20,6 +24,15 @@ public class Project {
 
     public Project(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Project{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", employees=" + employees +
+                '}';
     }
 
     public Project addEmployee(Employee employee) {
