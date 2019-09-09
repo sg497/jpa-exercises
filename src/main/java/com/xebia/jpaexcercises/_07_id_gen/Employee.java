@@ -1,41 +1,29 @@
 package com.xebia.jpaexcercises._07_id_gen;
 
 
-import com.xebia.jpaexcercises._05_enum.EmployeeType;
-
 import javax.persistence.*;
-import java.util.Date;
+
+import static javax.persistence.GenerationType.TABLE;
 
 @Entity
 @Table(name = "employees")
 public class Employee {
 
+    @TableGenerator(
+            name="empGen",
+            table="ID_GEN",
+            pkColumnName="GEN_KEY",
+            valueColumnName="GEN_VALUE",
+            pkColumnValue="EMP_ID",
+            allocationSize=1)
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @GeneratedValue(strategy=TABLE, generator="empGen")
+    private long id;
 
     @Column(name = "full_name")
     private String name;
 
-    @Basic(fetch = FetchType.LAZY)
-    @Column(name = "long_bio")
-    private String bio;
-
-    @Basic(fetch = FetchType.LAZY)
-    @Lob
-    @Column(name = "pic")
-    private byte[] picture;
-
-    @Enumerated(EnumType.ORDINAL)
-    private EmployeeType employeeType;
-
-    @Temporal(TemporalType.DATE)
-    private Date dateOfBirth;
-
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date registeredAt;
-
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
@@ -51,43 +39,4 @@ public class Employee {
         this.name = name;
     }
 
-    public String getBio() {
-        return bio;
-    }
-
-    public void setBio(String bio) {
-        this.bio = bio;
-    }
-
-    public byte[] getPicture() {
-        return picture;
-    }
-
-    public void setPicture(byte[] picture) {
-        this.picture = picture;
-    }
-
-    public EmployeeType getEmployeeType() {
-        return employeeType;
-    }
-
-    public void setEmployeeType(EmployeeType employeeType) {
-        this.employeeType = employeeType;
-    }
-
-    public Date getDateOfBirth() {
-        return dateOfBirth;
-    }
-
-    public void setDateOfBirth(Date dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
-
-    public Date getRegisteredAt() {
-        return registeredAt;
-    }
-
-    public void setRegisteredAt(Date registeredAt) {
-        this.registeredAt = registeredAt;
-    }
 }
